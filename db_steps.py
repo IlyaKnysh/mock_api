@@ -6,7 +6,7 @@ from db_models import Payload, db
 
 def add_entry(path_pattern, payload):
     with app.app.app_context():
-        payload = Payload(path_pattern=path_pattern, payload=payload)
+        payload = Payload(path_pattern=path_pattern, payload=str(payload))
         db.session.add(payload)
         db.session.commit()
 

@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_migrate import Migrate
 
-from config import SQLALCHEMY_DATABASE_URI
+from config import SQLALCHEMY_DATABASE_URI, API_PATH
 from db_models import db
 import db_steps
 
@@ -19,8 +19,8 @@ app = create_app()
 migrate = Migrate(app, db)
 
 
-@app.route('/api', methods=['GET', 'POST'])
-@app.route('/api/<path:path>', methods=['GET', 'POST'])
+@app.route(f'/{API_PATH}', methods=['GET', 'POST'])
+@app.route(f'/{API_PATH}/<path:path>', methods=['GET', 'POST'])
 def catch_all(path):
     try:
         return db_steps.get_re_entry_by_string(path), 200
@@ -30,8 +30,8 @@ def catch_all(path):
 
 @app.route('/add_pattern', methods=['POST'])
 def add_pattern():
-    result = tuple(*request.get_json().items())
-    db_steps.add_entry(result[0], result[1])
+    result = request.get_json()
+    db_steps.add_entry(result.get('path'), result.get('payload'))
     return '', 204
 
 
