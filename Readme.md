@@ -31,7 +31,7 @@ Check that mock response was added
 
     $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/api/v1/patients/2'
 
-Get log of requests
+Get all mocked endpoints
 
     $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/get_all'
 
