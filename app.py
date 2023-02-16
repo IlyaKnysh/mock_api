@@ -41,7 +41,7 @@ def clean_db():
     return 'DB was cleaned', 200
 
 
-@app.route('/get_all', methods=['GET'])
+@app.route('/get_all_mocks', methods=['GET'])
 def get_all():
     return str(db_steps.get_add_entries()), 200
 

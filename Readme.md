@@ -14,7 +14,7 @@ or
     $ sh start.sh
 
 # Available Endpoints:
-/get_all - get all db entries
+/get_all_mocks - get all mock db entries
 
 /clean_db - recreate db
 
@@ -33,7 +33,7 @@ Check that mock response was added
 
 Get all mocked endpoints
 
-    $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/get_all'
+    $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/get_all_mocks'
 
 Clean DB with patterns
 
