@@ -7,6 +7,7 @@ pip install -r requirements.txt
 # Start API:
 You can set api path to API_PATH system variable. By default, API_PATH=api
 
+
     $ python app.py
 
 or
@@ -38,3 +39,7 @@ Get all mocked endpoints
 Clean DB with patterns
 
     $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/clean_db'
+
+Get requests history
+
+    $ curl -XGET -H "Content-type: application/json" 'http://127.0.0.1:5000/requests_history'
